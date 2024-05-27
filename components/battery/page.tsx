@@ -56,7 +56,7 @@ function Battery() {
       return COLORS.orange;
     }
 
-    if (batteryLevel >= 80) {
+    if (batteryLevel >= 90) {
       return COLORS.green;
     }
 
