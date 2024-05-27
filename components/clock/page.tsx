@@ -39,23 +39,6 @@ function Clock() {
     'Diciembre',
   ]
 
-  useEffect(() => {
-    updateClock()
-    const timer = setInterval(updateClock, 1000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const isAtClockAnalizer = (minutes: number, seconds: number): void => {
-
-    const minutesIsZero = minutes === 0
-    if (!minutesIsZero) { setIsAtClock(false) }
-
-    const secondsIsEven = seconds % 2 === 0
-    const newIsAtClock = minutesIsZero && secondsIsEven
-
-    setIsAtClock(newIsAtClock)
-  }
-
   const updateClock = () => {
     const date = new Date()
     const hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours()
@@ -74,6 +57,23 @@ function Clock() {
     setMonth(month)
 
     isAtClockAnalizer(minutes, seconds)
+  }
+
+  useEffect(() => {
+    updateClock()
+    const timer = setInterval(updateClock, 1000)
+    return () => clearInterval(timer)
+  }, [updateClock])
+
+  const isAtClockAnalizer = (minutes: number, seconds: number): void => {
+
+    const minutesIsZero = minutes === 0
+    if (!minutesIsZero) { setIsAtClock(false) }
+
+    const secondsIsEven = seconds % 2 === 0
+    const newIsAtClock = minutesIsZero && secondsIsEven
+
+    setIsAtClock(newIsAtClock)
   }
 
   const formatTime = (time: number): string => {
