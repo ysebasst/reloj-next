@@ -30,13 +30,13 @@ function Battery() {
   }, []);
 
   const getBatteryLevel = async (): Promise<void> => {
-    if (!navigator?.getBattery) {
+    if (!window?.navigator?.getBattery) {
       console.log("El administrador de batería no es compatible");
       setBatteryLevel(100);
       return;
     }
 
-    const batteryManager = await navigator.getBattery();
+    const batteryManager = await window.navigator.getBattery();
     const batteryLevel = batteryManager.level;
 
     const batteryLevelFormatted = Math.floor(batteryLevel * 100);
@@ -50,7 +50,7 @@ function Battery() {
 
   const getColorStatusValue = (): string => {
 
-    const getBatteryCompatibility = navigator?.getBattery;
+    const getBatteryCompatibility = window?.navigator?.getBattery;
     if (!getBatteryCompatibility) {
       return COLORS.default;
     }
