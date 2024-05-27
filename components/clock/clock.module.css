@@ -31,6 +31,7 @@
   flex-direction: column;
   justify-content: center;
   font-size: 10vw;
+  line-height: 1;
 }
 
 .date-info {
