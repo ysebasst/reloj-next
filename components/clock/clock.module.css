@@ -1,0 +1,41 @@
+.clock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  line-height: 1.15;
+  color: #ffffff;
+  background-color: #555555;
+  user-select: none;
+}
+
+.hour-info {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.hour-info__left {
+  font-size: 24vw;
+  gap: 1rem;
+}
+
+.hour-info__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 10vw;
+}
+
+.date-info {
+  font-size: 6vw;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
