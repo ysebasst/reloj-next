@@ -38,7 +38,7 @@ function Battery() {
     const batteryManager = await navigator.getBattery();
     const batteryLevel = batteryManager.level;
 
-    const batteryLevelFormatted = Math.floor(batteryLevel * 100);
+    const batteryLevelFormatted = batteryLevel * 100;
 
     setBatteryLevel(batteryLevelFormatted);
   }
@@ -86,7 +86,7 @@ function Battery() {
           <span
             className={styles['battery__status-value']}
             style={batteryStatusValueStyles}
-          >{batteryLevel}%</span>
+          >{getBatteryLevelWidth()}</span>
         </div>
       </div>
     </section>
