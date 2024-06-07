@@ -57,9 +57,9 @@ function Battery() {
 
     if (batteryLevel === 0) { return COLORS.default; }
 
-    if (batteryLevel <= 10) { return COLORS.red; }
+    if (batteryLevel <= 10 && !isCharging) { return COLORS.red; }
 
-    if (batteryLevel <= 20) { return COLORS.orange; }
+    if (batteryLevel <= 20 && !isCharging) { return COLORS.orange; }
 
     if (batteryLevel >= 90 && isCharging) { return COLORS.green; }
 
