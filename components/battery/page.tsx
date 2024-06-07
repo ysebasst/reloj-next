@@ -12,6 +12,7 @@ declare global {
 function Battery() {
 
   const [batteryLevel, setBatteryLevel] = useState<number>(0);
+  const [isCharging, setIsCharging] = useState<boolean>(false);
 
   const COLORS = {
     red: '#FF0000',
@@ -37,10 +38,12 @@ function Battery() {
 
     const batteryManager = await window.navigator.getBattery();
     const batteryLevel = batteryManager.level;
+    const isCharging = batteryManager.charging;
 
     const batteryLevelFormatted = Math.floor(batteryLevel * 100);
 
     setBatteryLevel(batteryLevelFormatted);
+    setIsCharging(isCharging);
   }
 
   const getBatteryLevelWidth = (): string => {
@@ -58,7 +61,7 @@ function Battery() {
 
     if (batteryLevel <= 20) { return COLORS.orange; }
 
-    if (batteryLevel >= 90) { return COLORS.green; }
+    if (batteryLevel >= 90 && isCharging) { return COLORS.green; }
 
     return COLORS.default;
   }
