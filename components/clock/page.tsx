@@ -44,7 +44,7 @@ function Clock() {
     const hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours()
     const minutes = date.getMinutes()
     const seconds = date.getSeconds()
-    const ampm = hours >= 12 ? 'PM' : 'AM'
+    const ampm = date.getHours() >= 12 ? 'PM' : 'AM'
     const dayOfWeek = date.getDay()
     const day = date.getDate()
     const month = date.getMonth()
